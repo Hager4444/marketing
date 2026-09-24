@@ -1,4 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hager4444.github.io/marketing/</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://hager4444.github.io/marketing/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://hager4444.github.io/marketing/og.png</image:loc><image:title>Hager Fawzy, Senior Performance Marketing Specialist</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-09-store.png</image:loc><image:title>Azran E-Com, Store profit dashboard: Gross sales 1.21M SAR (+64.07%), net profit 355.43K SAR (+58.69%)</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-09-ga4.png</image:loc><image:title>Azran E-Com, Google Analytics 4: Total revenue SAR 1M, 4K purchasers</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-09-meta.png</image:loc><image:title>Azran E-Com, Meta Ads Manager: Advantage+ prospecting: ROAS 13.30, cost per purchase 19.56 SAR</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-09-tiktok.png</image:loc><image:title>Azran E-Com, TikTok Ads Manager: 3 campaigns: ROAS 11.68 on 27,845 SAR, 1,356 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-09-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 16.75 on US$3,741.82, 944 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-08-store.png</image:loc><image:title>Azran E-Com, Store profit dashboard: Gross sales 925.05K SAR (+70.34%), net profit 283.26K SAR</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-08-ga4.png</image:loc><image:title>Azran E-Com, Google Analytics 4: Total revenue SAR 806K, 3.2K purchasers</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-08-meta.png</image:loc><image:title>Azran E-Com, Meta Ads Manager: Prospecting ROAS 5.59, catalog retargeting ROAS 7.04</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-08-tiktok.png</image:loc><image:title>Azran E-Com, TikTok Ads Manager: ROAS 11.18 on 12,322 SAR, 582 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-08-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 9.7 on US$11,429.45, 1,706 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-07-store.png</image:loc><image:title>Azran E-Com, Store profit dashboard: Gross sales 543.06K SAR, net profit 169.14K SAR</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-07-ga4.png</image:loc><image:title>Azran E-Com, Google Analytics 4: Total revenue SAR 446K, 1.9K purchasers</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-07-meta.png</image:loc><image:title>Azran E-Com, Meta Ads Manager: Prospecting ROAS 4.57, catalog retargeting ROAS 10.93</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-07-tiktok.png</image:loc><image:title>Azran E-Com, TikTok Ads Manager: Catalog retargeting ROAS 8.35, video offers ROAS 4.60</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-07-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 6.98 on US$8,571.78, 947 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-06-store.png</image:loc><image:title>Azran E-Com, Store profit dashboard: Gross sales 504.42K SAR (+31.19%), net profit 167.74K SAR</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-06-ga4.png</image:loc><image:title>Azran E-Com, Google Analytics 4: Total revenue SAR 409K, 1.7K purchasers</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-06-meta.png</image:loc><image:title>Azran E-Com, Meta Ads Manager: Advantage+ prospecting: ROAS 3.25, 519 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-06-tiktok.png</image:loc><image:title>Azran E-Com, TikTok Ads Manager: ROAS 3.81 on 45,837 SAR, 788 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-06-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 4.4 on US$13,656.45, 1,031 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-05-store.png</image:loc><image:title>Azran E-Com, Store profit dashboard: Gross sales 393.25K SAR (+34.12%), net profit 198.18K SAR</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-05-ga4.png</image:loc><image:title>Azran E-Com, Google Analytics 4: Total revenue SAR 314K, 1.4K purchasers</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-05-tiktok.png</image:loc><image:title>Azran E-Com, TikTok Ads Manager: ROAS 4.40 on 24,139 SAR, 497 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-05-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 5.7 on US$7,511.67, 676 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-04-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 0.47 on US$479.02 while testing</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-03-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 2.33 on US$18,347.04, 709 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-02-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 3.69 on US$45,342.11, 2,872 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/2026-01-snapchat.png</image:loc><image:title>Azran E-Com, Snapchat Ads Manager: ROAS 3.52 on US$39,919.22, 2,497 purchases</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-2023-google-app.png</image:loc><image:title>Mazaady, Google Ads · 2023: 52.5K installs on 46.4K SAR, 0.88 SAR per install, CTR 1.63%</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-2023-monthly.png</image:loc><image:title>Mazaady, Google Ads · Apr – Jul 2023: Best month May: 17.6K installs at 0.52 SAR each</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-2024-google-app.png</image:loc><image:title>Mazaady, Google Ads · 2024: 118K installs on $26.1K, 568K clicks, 3.11% conversion rate</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-2024-cpi.png</image:loc><image:title>Mazaady, Google Ads · 2024: $0.22 cost per install</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-search-signups.png</image:loc><image:title>Mazaady, Google Search: 380 sign-ups at 13.04 SAR each</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-search-keywords.png</image:loc><image:title>Mazaady, Google Search: Top keywords by sign-ups</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-meta-total.png</image:loc><image:title>Mazaady, Meta: Mazaady Egypt May 2024: 1,269 conversions at $1.14; $22,076 total spend</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-meta-egypt.png</image:loc><image:title>Mazaady, Meta · Jul 2023: Egypt B2C: 202 sign-ups at $1.86; B2B: 163 at $2.15</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-meta-ads.png</image:loc><image:title>Mazaady, Meta: 573 sign-ups at $1.32 on $754.52</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/mazaady-meta-jul-2023.png</image:loc><image:title>Mazaady, Meta · Jul 2023: Campaigns across Morocco, Algeria, UAE, Saudi Arabia and Egypt</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/doworkss-year1.png</image:loc><image:title>Doworkss, Google Ads · Year one: 138K installs on $32.7K, $0.24 per install</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/doworkss-year2.png</image:loc><image:title>Doworkss, Google Ads · Sep 2023 – Jul 2024: 160K installs on $37.1K, CTR 2.87%</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/doworkss-signups.png</image:loc><image:title>Doworkss, Google Ads: 371 sign-ups at 0.85 SAR each; 263 at 15.74 SAR</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/doworkss-meta-alg-mor.png</image:loc><image:title>Doworkss, Meta · 2024: Algeria &amp; Morocco: 273 registrations at $0.80</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/doworkss-meta-2024.png</image:loc><image:title>Doworkss, Meta · 2024: Algeria &amp; Morocco May 2024: 463 sign-ups at $1.36</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/generalco-woocommerce.png</image:loc><image:title>Generalco, WooCommerce: QAR 868,995 net sales, 425 orders, QAR 2,044.69 average order</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/generalco-meta-targeted.png</image:loc><image:title>Generalco, Meta: Targeted ad set: ROAS 12.36, QAR 46,333 from QAR 3,747</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/generalco-meta-adsets.png</image:loc><image:title>Generalco, Meta: Ad sets: A/C General ROAS 8.23, New Video ROAS 8.07</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/gazi-salla-dec-2022.jpg</image:loc><image:title>Gazi Perfume, Salla store · Dec 2022: 460,518 SAR sales, 1,874 orders, 71,060 visits</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/gazi-snapchat-overview.jpg</image:loc><image:title>Gazi Perfume, Snapchat · 25 Oct – 30 Dec 2022: $19,854.61 spend, 5.6M paid impressions, 71,227 swipe-ups</image:title></image:image>
+    <image:image><image:loc>https://hager4444.github.io/marketing/shots/gazi-snapchat-campaigns.jpg</image:loc><image:title>Gazi Perfume, Snapchat: Traffic at $0.22–0.27 per swipe-up; Black Friday conversions at $12.26 per purchase</image:title></image:image>
+  </url>
 </urlset>
