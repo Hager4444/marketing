@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hager4444.github.io/marketing/sitemap.xml
