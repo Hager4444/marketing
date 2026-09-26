@@ -230,6 +230,21 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 .proj-head h2{font-size:clamp(26px,4vw,36px);font-weight:800}
 .proj-head p{color:var(--ink-2)}
 .month-head h3{font-size:clamp(18px,2.4vw,22px);font-weight:700;font-family:var(--display);margin:0}
+
+/* Month picker */
+.picker{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.picker-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;justify-content:space-between}
+.picker-label{font:500 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.picker-sel{font:600 15px/1.2 var(--body);color:var(--ink)}
+.months{display:flex;flex-wrap:wrap;gap:6px}
+.mbtn{font:500 13px/1 var(--body);padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink-2);cursor:pointer;display:inline-flex;align-items:baseline;gap:6px}
+.mbtn small{font:400 11px/1 var(--mono);color:var(--muted)}
+.mbtn:hover{border-color:var(--accent);color:var(--ink)}
+.mbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.mbtn[aria-pressed="true"] small{color:var(--accent-ink);opacity:.8}
+.mbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.picker select{display:none;font:500 15px/1.2 var(--body);padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+@media (max-width:560px){ .months{display:none} .picker select{display:block} }
 @media (max-width:760px){
   .top{grid-template-columns:1fr}
   .contact{align-items:flex-start;text-align:left}
@@ -870,6 +885,8 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
   var editing = false, canEdit = false, readOnly = false, art = null, busy = false, statusMsg = "";
   var tab = "store";
   var page = location.hash === "#campaigns" ? "campaigns" : "overview";
+  var sel = {};
+  try { sel = JSON.parse(localStorage.getItem("pf-month") || "{}") || {}; } catch(e) { sel = {}; }
   try { var t = localStorage.getItem("pf-tab"); if (t && TABLES[t]) tab = t; } catch(e) {}
 
   var app = document.getElementById("app");
@@ -992,14 +1009,28 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
   function renderCampaigns(h){
     var list = state.campaigns || [];
     h.push('<section class="sec" aria-labelledby="cp-t"><div class="sec-head"><div class="eyebrow">Ad platform & analytics screenshots</div><h2 id="cp-t">Campaigns</h2>' +
-      '<p>The original reports behind the numbers on the overview, grouped by project. Click a screenshot to see it full size.</p></div>' +
-      '<nav class="jump" aria-label="Projects">' + list.filter(hasShots).map(function(p){ return '<a href="#' + esc(p.id) + '" data-jump="' + esc(p.id) + '">' + esc(p.project) + "</a>"; }).join("") + "</nav></section>");
+      '<p>The original ad platform and analytics reports behind the numbers on the overview. Choose a month to see its reports, and click a screenshot to see it full size.</p></div>' +
+      (list.filter(hasShots).length > 1 ? '<nav class="jump" aria-label="Projects">' + list.filter(hasShots).map(function(p){ return '<a href="#' + esc(p.id) + '" data-jump="' + esc(p.id) + '">' + esc(p.project) + "</a>"; }).join("") + "</nav>" : "") + "</section>");
     list.forEach(function(p,pi){
       if (!hasShots(p)) return;
       var base = "campaigns." + pi;
       h.push('<section class="sec" style="gap:32px"><div class="proj-head" id="' + esc(p.id) + '">' + T(base+".project","h2") + T(base+".intro","p","","Add a short description") + "</div>");
+      var avail = [];
+      p.groups.forEach(function(g,i){ if (editing || g.shots.length) avail.push(i); });
+      var cur = sel[p.id];
+      if (cur !== "all" && avail.indexOf(+cur) < 0) cur = avail.length ? avail[0] : "all";
+      if (avail.length > 1) {
+        var curLabel = cur === "all" ? "All months" : p.groups[cur].title;
+        h.push('<div class="picker" role="group" aria-label="Choose a month"><div class="picker-top"><span class="picker-label">Choose a month</span><span class="picker-sel">Showing: ' + esc(curLabel) + '</span></div>' +
+          '<div class="months">' + avail.map(function(i){ var g = p.groups[i];
+            return '<button class="mbtn" data-month="' + esc(p.id) + '|' + i + '" aria-pressed="' + (cur === i) + '">' + esc(g.title) + ' <small>' + g.shots.length + '</small></button>'; }).join("") +
+          '<button class="mbtn" data-month="' + esc(p.id) + '|all" aria-pressed="' + (cur === "all") + '">All months</button></div>' +
+          '<select id="msel-' + esc(p.id) + '" data-msel="' + esc(p.id) + '" aria-label="Choose a month">' + avail.map(function(i){ return '<option value="' + i + '"' + (cur === i ? " selected" : "") + ">" + esc(p.groups[i].title) + "</option>"; }).join("") +
+          '<option value="all"' + (cur === "all" ? " selected" : "") + ">All months</option></select></div>");
+      }
       p.groups.forEach(function(g,i){
         if (!editing && !g.shots.length) return;
+        if (cur !== "all" && i !== cur) return;
         var gb = base + ".groups." + i;
         h.push('<div class="month"><div class="month-head">' + T(gb+".title","h3") +
           ((editing || g.note) ? T(gb+".note","span","note","Add a note") : "") +
@@ -1123,6 +1154,13 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     lb.innerHTML = '<div class="lb-bar"><span>' + esc(p.project + " · " + sh.platform + " · " + sh.caption) + '</span><button class="btn small" data-close>Close</button></div><img src="' + esc(sh.src) + '" alt="' + esc(p.project + ", " + sh.platform) + '">';
     lb.hidden = false; lb.querySelector("[data-close]").focus();
   }
+  function pickMonth(pid, v){
+    sel[pid] = v === "all" ? "all" : +v;
+    try { localStorage.setItem("pf-month", JSON.stringify(sel)); } catch(x) {}
+    render();
+    var pk = document.querySelector(".picker"); if (pk && pk.getBoundingClientRect().top < 0) pk.scrollIntoView();
+  }
+  app.addEventListener("change", function(e){ var ms = e.target.getAttribute && e.target.getAttribute("data-msel"); if (ms) pickMonth(ms, e.target.value); });
   function closeShot(){ lb.hidden = true; lb.innerHTML = ""; }
   lb.addEventListener("click", function(e){ if (e.target === lb || e.target.hasAttribute("data-close")) closeShot(); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !lb.hidden) closeShot(); });
@@ -1138,6 +1176,8 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     if (gt){ page = "campaigns"; render(); try { history.replaceState(null, "", "#campaigns"); } catch(x) {} var tgt = document.getElementById(gt.getAttribute("data-goto")); if (tgt) tgt.scrollIntoView(); return; }
     var jp = e.target.closest && e.target.closest("[data-jump]");
     if (jp){ e.preventDefault(); var el = document.getElementById(jp.getAttribute("data-jump")); if (el) el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); return; }
+    var mb = e.target.closest && e.target.closest("[data-month]");
+    if (mb){ var mv = mb.getAttribute("data-month").split("|"); pickMonth(mv[0], mv[1]); return; }
     var op = e.target.closest && e.target.closest("[data-open]");
     if (op){ openShot(op.getAttribute("data-open")); return; }
     var b = e.target.closest && e.target.closest("[data-act],[data-tab]");
