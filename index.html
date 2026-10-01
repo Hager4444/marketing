@@ -285,6 +285,18 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 .det{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
 .det .dl{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
 .det .dt{font-size:14.5px;color:var(--ink)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:10px;margin-top:16px;max-width:760px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.stat .sv{font:800 clamp(24px,3vw,32px)/1 var(--display);color:var(--accent);letter-spacing:-0.01em}
+.stat .sl{font-size:13px;color:var(--ink-2)}
+.step-shot{margin:16px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:900px}
+.step-shot .img{display:block;width:100%;padding:0;border:0;border-bottom:1px solid var(--line);background:#fff;cursor:zoom-in}
+.step-shot .img img{display:block;width:100%;height:auto}
+.step-shot .img:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.step-shot figcaption{padding:12px 16px 14px;display:flex;flex-direction:column;gap:4px}
+.step-shot .plat-name{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.step-shot .cap{font-size:14px;color:var(--ink)}
 @media (max-width:760px){
   .top{grid-template-columns:1fr}
   .contact{align-items:flex-start;text-align:left}
@@ -977,7 +989,26 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
         "tiers": [],
         "flow": [],
         "details": [],
-        "closing": "We segmented High-Value Customers with 3+ purchases and activated them through targeted WhatsApp campaigns with exclusive promotional codes — focusing on repeat purchases and customer value, rather than relying solely on paid acquisition."
+        "closing": "We segmented High-Value Customers with 3+ purchases and activated them through targeted WhatsApp campaigns with exclusive promotional codes — focusing on repeat purchases and customer value, rather than relying solely on paid acquisition.",
+        "stats": [
+          {
+            "value": "6×",
+            "label": "ROAS from CRM"
+          },
+          {
+            "value": "81,701 SAR",
+            "label": "Spend"
+          },
+          {
+            "value": "490K SAR",
+            "label": "CRM revenue in GA4 (47% of total)"
+          }
+        ],
+        "image": {
+          "src": "shots/2026-09-crm-ga4.png",
+          "platform": "Google Analytics 4 · 1 – 22 Sep 2026",
+          "caption": "CRM and WhatsApp traffic: SAR 490,211.59 revenue, 46.97% of total, 23.45% key event rate"
+        }
       }
     ]
   }
@@ -1109,6 +1140,10 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       }
       if ((st.details || []).length) x += '<div class="dets">' + st.details.map(function(d,j){ return '<div class="det">' + T(b+"details."+j+".label","span","dl") + T(b+"details."+j+".text","span","dt") + "</div>"; }).join("") + "</div>";
       if (st.closing || editing) x += T(b+"closing","p","c","Add a closing line");
+      if ((st.stats || []).length) x += '<div class="stats">' + st.stats.map(function(k,j){ return '<div class="stat">' + T(b+"stats."+j+".value","span","sv num") + T(b+"stats."+j+".label","span","sl") +
+        (editing ? '<button class="btn small ghost" data-act="rm" data-list="' + b + 'stats" data-i="' + j + '">Remove</button>' : "") + "</div>"; }).join("") + "</div>";
+      if (st.image && st.image.src) x += '<figure class="step-shot"><button class="img" data-open-img="' + i + '" aria-label="Open ' + esc(st.image.platform) + ' full size"><img src="' + esc(st.image.src) + '" alt="' + esc(st.image.platform + ": " + st.image.caption) + '" loading="lazy"></button>' +
+        '<figcaption>' + T(b+"image.platform","span","plat-name") + T(b+"image.caption","span","cap") + "</figcaption></figure>";
       x += tools(rm("strategy.steps", i, "step")) + "</div></article>";
       h.push(x);
     });
@@ -1341,6 +1376,10 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     if (gm){ var gv = gm.getAttribute("data-goto-month").split("|"); sel[gv[0]] = +gv[1]; try { localStorage.setItem("pf-month", JSON.stringify(sel)); } catch(x) {} page = "campaigns"; render(); window.scrollTo(0,0); try { history.replaceState(null, "", "#campaigns"); } catch(x) {} return; }
     var mb = e.target.closest && e.target.closest("[data-month]");
     if (mb){ var mv = mb.getAttribute("data-month").split("|"); pickMonth(mv[0], mv[1]); return; }
+    var oi = e.target.closest && e.target.closest("[data-open-img]");
+    if (oi){ var im = state.strategy.steps[+oi.getAttribute("data-open-img")].image;
+      lb.innerHTML = '<div class="lb-bar"><span>' + esc(im.platform + " · " + im.caption) + '</span><button class="btn small" data-close>Close</button></div><img src="' + esc(im.src) + '" alt="' + esc(im.platform) + '">';
+      lb.hidden = false; lb.querySelector("[data-close]").focus(); return; }
     var op = e.target.closest && e.target.closest("[data-open]");
     if (op){ openShot(op.getAttribute("data-open")); return; }
     var b = e.target.closest && e.target.closest("[data-act],[data-tab]");
