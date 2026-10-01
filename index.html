@@ -34,7 +34,7 @@
   --ink:#14201A; --ink-2:#45524B; --muted:#6F7C75; --line:#D6DDD6;
   --accent:#0C6A48; --accent-ink:#FFFFFF; --accent-soft:#DCEEE4;
   --up:#137A4B; --down:#B23A2E;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --display:"Bricolage Grotesque", "IBM Plex Sans Arabic", "Segoe UI", system-ui, sans-serif;
   --body:"IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --arabic:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
@@ -82,6 +82,17 @@ p{margin:0}
 .case-head{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;justify-content:space-between}
 .case-head h2{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.1}
 .case-head .ar{display:inline-block;font-size:clamp(18px,2.6vw,24px);color:var(--ink-2);font-weight:600}
+.case-title{font-size:clamp(40px,7vw,72px)!important;font-weight:800!important;line-height:1.15!important;font-family:"IBM Plex Sans Arabic",var(--display)}
+.case-sub{font-size:clamp(16px,2.2vw,20px);color:var(--ink-2);font-weight:500;margin-top:6px}
+.teaser{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px clamp(20px,3vw,36px)}
+.teaser .t-title{font:800 clamp(32px,5vw,52px)/1.15 "IBM Plex Sans Arabic",var(--display);margin-top:8px;text-align:left}
+.teaser .t-sub{color:var(--ink-2);margin-top:6px;max-width:52ch}
+.teaser .t-big{font:800 clamp(44px,7vw,76px)/.95 var(--display);letter-spacing:-0.03em;text-align:right}
+.teaser .t-big small{font-size:.32em;color:var(--muted);margin-left:.15em;letter-spacing:0}
+.teaser .t-lbl{font-size:13px;color:var(--ink-2);text-align:right;margin-top:6px}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font:600 14px/1 var(--body);color:var(--accent-ink);background:var(--accent);border:0;border-radius:10px;padding:12px 16px;cursor:pointer;text-decoration:none}
+.cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.case-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 .tag{font:500 12px/1 var(--mono);padding:7px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);background:var(--surface)}
 .tag.strong{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
@@ -251,6 +262,8 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
   .contact .f{justify-content:flex-start}
   .hero{grid-template-columns:1fr;gap:20px}
   .proj{grid-template-columns:1fr}
+  .teaser{grid-template-columns:1fr}
+  .teaser .t-big,.teaser .t-lbl{text-align:left}
 }
 @media (prefers-reduced-motion:no-preference){
   .big{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
@@ -259,7 +272,7 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 </style>
 </head>
 <body>
-<div id="app"><nav class="nav" aria-label="Pages"><div class="nav-in"><span class="who">Hager Fawzy Yusuf</span><a href="#overview" data-page="overview" aria-current="page">Overview</a><a href="#campaigns" data-page="campaigns">Campaigns</a></div></nav><div class="wrap"><header class="top"><div><h1 data-path="profile.name" data-ph="Add text">Hager Fawzy Yusuf</h1><div class="role" data-path="profile.title" data-ph="Add text">Senior Performance Marketing Specialist</div><p class="summary" data-path="profile.summary" data-ph="Add text">I plan and run paid media for apps and e-commerce brands in Saudi Arabia, Egypt, Qatar. on Google, Meta, TikTok and Snapchat. My work covers app installs, sign-ups and online sales, from launching new accounts to scaling budgets that already work. Every number on this page comes from the ad platform or the client's own dashboards.</p></div><div class="contact"><div class="f"><span class="k">Based in</span><span data-path="profile.location" data-ph="Add based in">Egypt</span></div><div class="f"><span class="k">Phone</span><span data-path="profile.phone" data-ph="Add phone">01060252733</span></div></div></header><section class="case" aria-labelledby="case-t"><div class="case-head"><div><div class="eyebrow" data-path="case.eyebrow" data-ph="Add text">Featured case study</div><h2 id="case-t" style="margin-top:8px"><span data-path="case.title" data-ph="Add text">Before Saudi National Day</span></h2><div class="ar" dir="rtl" lang="ar" style="margin-top:6px"><span data-path="case.titleAr" data-ph="Add text">قبل اليوم الوطني السعودي</span></div></div><div class="tags"><span class="tag strong"><span data-path="case.period" data-ph="Add text">1 – 22 Sep 2026</span></span><span class="tag"><span data-path="case.status" data-ph="Add text">No offers running</span></span></div></div><div class="hero"><div><div class="big num"><span data-path="case.heroValue" data-ph="Add text">1.21M</span><small><span data-path="case.heroUnit" data-ph="Add text">SAR</span></small></div><div class="big-label"><span data-path="case.heroLabel" data-ph="Add text">Gross store sales in 22 days, with no discounts or offers live</span></div><div style="margin-top:12px"><span class="delta"><span data-path="case.heroDelta" data-ph="Add text">+64.07% vs previous period</span></span></div></div><div><p class="intro" data-path="case.intro" data-ph="Add text">In the three weeks before National Day, most Saudi stores lean on discounts. This store ran none. Sales still grew by 64% and net profit by 59%, while every ad platform returned more than 11× its spend.</p></div></div><div class="kpis"><div class="kpi"><div class="v num" data-path="kpis.0.value" data-ph="Add text">1.16M SAR</div><div class="l" data-path="kpis.0.label" data-ph="Add text">Net sales</div><div class="n" data-path="kpis.0.note" data-ph="Add a note">+63.72% vs previous period</div></div><div class="kpi"><div class="v num" data-path="kpis.1.value" data-ph="Add text">355.43K SAR</div><div class="l" data-path="kpis.1.label" data-ph="Add text">Net profit</div><div class="n" data-path="kpis.1.note" data-ph="Add a note">+58.69% vs previous period</div></div><div class="kpi"><div class="v num" data-path="kpis.2.value" data-ph="Add text">SAR 1M</div><div class="l" data-path="kpis.2.label" data-ph="Add text">Revenue in Google Analytics</div><div class="n" data-path="kpis.2.note" data-ph="Add a note">4K purchasers, 3.9K first-time</div></div><div class="kpi"><div class="v num" data-path="kpis.3.value" data-ph="Add text">SAR 13.39</div><div class="l" data-path="kpis.3.label" data-ph="Add text">Avg purchase revenue per active user</div><div class="n" data-path="kpis.3.note" data-ph="Add a note">Up from SAR 7.30 in May</div></div></div></section><section class="sec" aria-labelledby="pl-t"><div class="sec-head"><div class="eyebrow">Channel results · 1 – 22 Sep 2026</div><h2 id="pl-t">Every platform returned more than 11× its spend</h2><p>Return on ad spend (ROAS) as reported by each ad platform for the same 22 days.</p></div><div class="plats"><article class="plat"><div class="plat-top"><div><h3 data-path="platforms.0.name" data-ph="Add text">Meta</h3><div class="sub" data-path="platforms.0.sub" data-ph="Add text"></div></div></div><div class="roas"><span class="v num"><span data-path="platforms.0.roas" data-ph="Add text">13.30</span></span><span class="l">Purchase ROAS</span></div><dl class="metrics"><div class="row"><dt><span data-path="platforms.0.metrics.0.label" data-ph="Add text">Amount spent</span></dt><dd><span data-path="platforms.0.metrics.0.value" data-ph="Add text">9,641.49 SAR</span></dd></div><div class="row"><dt><span data-path="platforms.0.metrics.1.label" data-ph="Add text">Purchase value</span></dt><dd><span data-path="platforms.0.metrics.1.value" data-ph="Add text">128,220.17 SAR</span></dd></div><div class="row"><dt><span data-path="platforms.0.metrics.2.label" data-ph="Add text">Purchases</span></dt><dd><span data-path="platforms.0.metrics.2.value" data-ph="Add text">493</span></dd></div><div class="row"><dt><span data-path="platforms.0.metrics.3.label" data-ph="Add text">Cost per purchase</span></dt><dd><span data-path="platforms.0.metrics.3.value" data-ph="Add text">19.56 SAR</span></dd></div><div class="row"><dt><span data-path="platforms.0.metrics.4.label" data-ph="Add text">CTR (link)</span></dt><dd><span data-path="platforms.0.metrics.4.value" data-ph="Add text">2.04%</span></dd></div></dl></article><article class="plat"><div class="plat-top"><div><h3 data-path="platforms.1.name" data-ph="Add text">TikTok</h3><div class="sub" data-path="platforms.1.sub" data-ph="Add text"></div></div></div><div class="roas"><span class="v num"><span data-path="platforms.1.roas" data-ph="Add text">11.68</span></span><span class="l">Purchase ROAS</span></div><dl class="metrics"><div class="row"><dt><span data-path="platforms.1.metrics.0.label" data-ph="Add text">Spend</span></dt><dd><span data-path="platforms.1.metrics.0.value" data-ph="Add text">27,845.00 SAR</span></dd></div><div class="row"><dt><span data-path="platforms.1.metrics.1.label" data-ph="Add text">Purchase value</span></dt><dd><span data-path="platforms.1.metrics.1.value" data-ph="Add text">325,161.92 SAR</span></dd></div><div class="row"><dt><span data-path="platforms.1.metrics.2.label" data-ph="Add text">Purchases</span></dt><dd><span data-path="platforms.1.metrics.2.value" data-ph="Add text">1,356</span></dd></div><div class="row"><dt><span data-path="platforms.1.metrics.3.label" data-ph="Add text">Cost per purchase</span></dt><dd><span data-path="platforms.1.metrics.3.value" data-ph="Add text">20.5 SAR</span></dd></div><div class="row"><dt><span data-path="platforms.1.metrics.4.label" data-ph="Add text">CTR</span></dt><dd><span data-path="platforms.1.metrics.4.value" data-ph="Add text">1.41%</span></dd></div></dl></article><article class="plat"><div class="plat-top"><div><h3 data-path="platforms.2.name" data-ph="Add text">Snapchat</h3><div class="sub" data-path="platforms.2.sub" data-ph="Add text"></div></div></div><div class="roas"><span class="v num"><span data-path="platforms.2.roas" data-ph="Add text">16.75</span></span><span class="l">Purchase ROAS</span></div><dl class="metrics"><div class="row"><dt><span data-path="platforms.2.metrics.0.label" data-ph="Add text">Amount spent</span></dt><dd><span data-path="platforms.2.metrics.0.value" data-ph="Add text">US$3,741.82</span></dd></div><div class="row"><dt><span data-path="platforms.2.metrics.1.label" data-ph="Add text">Purchase value</span></dt><dd><span data-path="platforms.2.metrics.1.value" data-ph="Add text">US$62,674.87</span></dd></div><div class="row"><dt><span data-path="platforms.2.metrics.2.label" data-ph="Add text">Purchases</span></dt><dd><span data-path="platforms.2.metrics.2.value" data-ph="Add text">944</span></dd></div><div class="row"><dt><span data-path="platforms.2.metrics.3.label" data-ph="Add text">Cost per purchase</span></dt><dd><span data-path="platforms.2.metrics.3.value" data-ph="Add text">US$3.96</span></dd></div><div class="row"><dt><span data-path="platforms.2.metrics.4.label" data-ph="Add text">CTR</span></dt><dd><span data-path="platforms.2.metrics.4.value" data-ph="Add text">1.25%</span></dd></div></dl></article></div></section><section class="sec" aria-labelledby="gr-t"><div class="sec-head"><div class="eyebrow">Growth over 2026</div><h2 id="gr-t">From 393K to 1.21M SAR a month</h2><p>Monthly store sales grew more than three times from May to September, and Snapchat went from losing money in April to its best return of the year.</p></div><div class="charts"><figure class="chart" style="margin:0"><h3>Gross store sales by month</h3><div class="cap">SAR · September covers 1–22 Sep only</div><div id="ch-store"><svg viewBox="0 0 600 260" role="img" aria-label="Bar chart of gross store sales by month"><line class="base" x1="52" x2="592" y1="230" y2="230"></line><text x="44" y="234" text-anchor="end">0</text><line class="grid" x1="52" x2="592" y1="178.5" y2="178.5"></line><text x="44" y="182.5" text-anchor="end">375K</text><line class="grid" x1="52" x2="592" y1="127" y2="127"></line><text x="44" y="131" text-anchor="end">750K</text><line class="grid" x1="52" x2="592" y1="75.5" y2="75.5"></line><text x="44" y="79.5" text-anchor="end">1.13M</text><line class="grid" x1="52" x2="592" y1="24" y2="24"></line><text x="44" y="28" text-anchor="end">1.5M</text><path class="bar" d="M78,230V179.99366666666668Q78,175.99366666666668 82,175.99366666666668H130Q134,175.99366666666668 134,179.99366666666668V230Z"></path><text class="lbl" x="106" y="168.99366666666668" text-anchor="middle">393K</text><text x="106" y="250" text-anchor="middle">May</text><rect class="hit" x="52" y="24" width="108" height="206" data-tip="May
+<div id="app"><nav class="nav" aria-label="Pages"><div class="nav-in"><span class="who">Hager Fawzy Yusuf</span><a href="#overview" data-page="overview" aria-current="page">Overview</a><a href="#case-study-1" data-page="case-study-1">Case Study 1</a><a href="#campaigns" data-page="campaigns">Campaigns</a></div></nav><div class="wrap"><header class="top"><div><h1 data-path="profile.name" data-ph="Add text">Hager Fawzy Yusuf</h1><div class="role" data-path="profile.title" data-ph="Add text">Senior Performance Marketing Specialist</div><p class="summary" data-path="profile.summary" data-ph="Add text">I plan and run paid media for apps and e-commerce brands in Saudi Arabia, Egypt, Qatar. on Google, Meta, TikTok and Snapchat. My work covers app installs, sign-ups and online sales, from launching new accounts to scaling budgets that already work. Every number on this page comes from the ad platform or the client's own dashboards.</p></div><div class="contact"><div class="f"><span class="k">Based in</span><span data-path="profile.location" data-ph="Add based in">Egypt</span></div><div class="f"><span class="k">Phone</span><span data-path="profile.phone" data-ph="Add phone">01060252733</span></div></div></header><section class="teaser" aria-labelledby="ts-t"><div><div class="eyebrow">Case Study 1 · 1 – 22 Sep 2026</div><h2 id="ts-t" class="t-title" dir="auto">قبل اليوم الوطني</h2><p class="t-sub">Gross store sales in 22 days, with no discounts or offers live. +64.07% vs previous period.</p><a class="cta" href="#case-study-1" data-page="case-study-1">Read the case study →</a></div><div><div class="t-big num">1.21M<small>SAR</small></div><div class="t-lbl">No offers running</div></div></section><section class="sec" aria-labelledby="gr-t"><div class="sec-head"><div class="eyebrow">Growth over 2026</div><h2 id="gr-t">From 393K to 1.21M SAR a month</h2><p>Monthly store sales grew more than three times from May to September, and Snapchat went from losing money in April to its best return of the year.</p></div><div class="charts"><figure class="chart" style="margin:0"><h3>Gross store sales by month</h3><div class="cap">SAR · September covers 1–22 Sep only</div><div id="ch-store"><svg viewBox="0 0 600 260" role="img" aria-label="Bar chart of gross store sales by month"><line class="base" x1="52" x2="592" y1="230" y2="230"></line><text x="44" y="234" text-anchor="end">0</text><line class="grid" x1="52" x2="592" y1="178.5" y2="178.5"></line><text x="44" y="182.5" text-anchor="end">375K</text><line class="grid" x1="52" x2="592" y1="127" y2="127"></line><text x="44" y="131" text-anchor="end">750K</text><line class="grid" x1="52" x2="592" y1="75.5" y2="75.5"></line><text x="44" y="79.5" text-anchor="end">1.13M</text><line class="grid" x1="52" x2="592" y1="24" y2="24"></line><text x="44" y="28" text-anchor="end">1.5M</text><path class="bar" d="M78,230V179.99366666666668Q78,175.99366666666668 82,175.99366666666668H130Q134,175.99366666666668 134,179.99366666666668V230Z"></path><text class="lbl" x="106" y="168.99366666666668" text-anchor="middle">393K</text><text x="106" y="250" text-anchor="middle">May</text><rect class="hit" x="52" y="24" width="108" height="206" data-tip="May
 Gross sales: 393,250 SAR"></rect><path class="bar" d="M186,230V164.72632Q186,160.72632 190,160.72632H238Q242,160.72632 242,164.72632V230Z"></path><text x="214" y="250" text-anchor="middle">Jun</text><rect class="hit" x="160" y="24" width="108" height="206" data-tip="Jun
 Gross sales: 504,420 SAR"></rect><path class="bar" d="M294,230V159.41976Q294,155.41976 298,155.41976H346Q350,155.41976 350,159.41976V230Z"></path><text x="322" y="250" text-anchor="middle">Jul</text><rect class="hit" x="268" y="24" width="108" height="206" data-tip="Jul
 Gross sales: 543,060 SAR"></rect><path class="bar" d="M402,230V106.9598Q402,102.9598 406,102.9598H454Q458,102.9598 458,106.9598V230Z"></path><text x="430" y="250" text-anchor="middle">Aug</text><rect class="hit" x="376" y="24" width="108" height="206" data-tip="Aug
@@ -307,9 +320,9 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     "phone": "01060252733"
   },
   "case": {
-    "eyebrow": "Featured case study",
-    "title": "Before Saudi National Day",
-    "titleAr": "قبل اليوم الوطني السعودي",
+    "eyebrow": "Case Study 1",
+    "title": "قبل اليوم الوطني",
+    "titleAr": "Before Saudi National Day · Azran E-Com",
     "period": "1 – 22 Sep 2026",
     "status": "No offers running",
     "heroValue": "1.21M",
@@ -884,7 +897,9 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
   var state = clone(saved);
   var editing = false, canEdit = false, readOnly = false, art = null, busy = false, statusMsg = "";
   var tab = "store";
-  var page = location.hash === "#campaigns" ? "campaigns" : "overview";
+  var PAGES = ["overview", "case-study-1", "campaigns"];
+  function pageFromHash(){ var h = location.hash.slice(1); return PAGES.indexOf(h) >= 0 ? h : null; }
+  var page = pageFromHash() || "overview";
   var sel = {};
   try { sel = JSON.parse(localStorage.getItem("pf-month") || "{}") || {}; } catch(e) { sel = {}; }
   try { var t = localStorage.getItem("pf-tab"); if (t && TABLES[t]) tab = t; } catch(e) {}
@@ -925,26 +940,27 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     document.body.classList.toggle("editing", editing);
     var nav = '<nav class="nav" aria-label="Pages"><div class="nav-in"><span class="who">' + esc(s.profile.name) + '</span>' +
       '<a href="#overview" data-page="overview"' + (page === "overview" ? ' aria-current="page"' : "") + '>Overview</a>' +
+      '<a href="#case-study-1" data-page="case-study-1"' + (page === "case-study-1" ? ' aria-current="page"' : "") + '>Case Study 1</a>' +
       '<a href="#campaigns" data-page="campaigns"' + (page === "campaigns" ? ' aria-current="page"' : "") + '>Campaigns</a></div></nav>';
 
     // Header
     var contact = [["location","Based in"],["phone","Phone"],["email","Email"],["linkedin","LinkedIn"]].filter(function(f){ return editing || s.profile[f[0]]; })
       .map(function(f){ return '<div class="f"><span class="k">' + f[1] + "</span>" + T("profile." + f[0], "span", "", "Add " + f[1].toLowerCase()) + "</div>"; }).join("");
     h.push('<header class="top"><div>' + T("profile.name","h1") + T("profile.title","div","role") + T("profile.summary","p","summary") + '</div><div class="contact">' + contact + "</div></header>");
-    if (page === "campaigns") renderCampaigns(h); else renderOverview(h);
+    if (page === "campaigns") renderCampaigns(h); else if (page === "case-study-1") renderCase(h); else renderOverview(h);
     h.push(T("footnote","p","foot"));
     controls(h);
     app.innerHTML = nav + '<div class="wrap">' + h.join("") + "</div>";
     if (page === "overview") drawCharts();
   }
 
-  function renderOverview(h){
+  function renderCase(h){
     var s = state;
 
     // Case study
     var c = s.case;
     h.push('<section class="case" aria-labelledby="case-t"><div class="case-head"><div>' + T("case.eyebrow","div","eyebrow") +
-      '<h2 id="case-t" style="margin-top:8px">' + T("case.title") + '</h2><div class="ar" dir="rtl" lang="ar" style="margin-top:6px">' + T("case.titleAr") + "</div></div>" +
+      '<h2 id="case-t" class="case-title" dir="auto" style="margin-top:8px">' + T("case.title") + '</h2>' + T("case.titleAr","div","case-sub","Add a subtitle") + "</div>" +
       '<div class="tags"><span class="tag strong">' + T("case.period") + '</span><span class="tag">' + T("case.status") + "</span></div></div>");
     h.push('<div class="hero"><div><div class="big num">' + T("case.heroValue") + "<small>" + T("case.heroUnit") + '</small></div><div class="big-label">' + T("case.heroLabel") +
       '</div><div style="margin-top:12px"><span class="delta">' + T("case.heroDelta") + '</span></div></div><div>' + T("case.intro","p","intro") + "</div></div>");
@@ -962,6 +978,17 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
         "</dl>" + tools('<button class="btn small" data-act="add" data-list="platforms.'+i+'.metrics">Add a row</button>' + rm("platforms", i, "platform")) + "</article>");
     });
     h.push("</div>" + (editing ? '<div class="add-row"><button class="btn small" data-act="add" data-list="platforms">Add a platform</button></div>' : "") + "</section>");
+    h.push('<div class="case-foot"><button class="cta" data-goto-month="p-azran|0">See the September screenshots →</button></div>');
+  }
+
+  function renderOverview(h){
+    var s = state, c = s.case;
+
+    // Case study teaser
+    h.push('<section class="teaser" aria-labelledby="ts-t"><div><div class="eyebrow">' + esc(c.eyebrow) + " · " + esc(c.period) + '</div>' +
+      '<h2 id="ts-t" class="t-title" dir="auto">' + esc(c.title) + '</h2><p class="t-sub">' + esc(c.heroLabel) + ". " + esc(c.heroDelta) + '.</p>' +
+      '<a class="cta" href="#case-study-1" data-page="case-study-1">Read the case study →</a></div>' +
+      '<div><div class="t-big num">' + esc(c.heroValue) + "<small>" + esc(c.heroUnit) + '</small></div><div class="t-lbl">' + esc(c.status) + "</div></div></section>");
 
     // Charts
     h.push('<section class="sec" aria-labelledby="gr-t"><div class="sec-head"><div class="eyebrow">Growth over 2026</div><h2 id="gr-t">From 393K to 1.21M SAR a month</h2><p>Monthly store sales grew more than three times from May to September, and Snapchat went from losing money in April to its best return of the year.</p></div><div class="charts">' +
@@ -1165,7 +1192,7 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
   lb.addEventListener("click", function(e){ if (e.target === lb || e.target.hasAttribute("data-close")) closeShot(); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !lb.hidden) closeShot(); });
   window.addEventListener("hashchange", function(){
-    var want = location.hash === "#campaigns" ? "campaigns" : (location.hash === "#overview" ? "overview" : null);
+    var want = pageFromHash();
     if (want && want !== page){ page = want; render(); window.scrollTo(0,0); }
   });
 
@@ -1176,6 +1203,8 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     if (gt){ page = "campaigns"; render(); try { history.replaceState(null, "", "#campaigns"); } catch(x) {} var tgt = document.getElementById(gt.getAttribute("data-goto")); if (tgt) tgt.scrollIntoView(); return; }
     var jp = e.target.closest && e.target.closest("[data-jump]");
     if (jp){ e.preventDefault(); var el = document.getElementById(jp.getAttribute("data-jump")); if (el) el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); return; }
+    var gm = e.target.closest && e.target.closest("[data-goto-month]");
+    if (gm){ var gv = gm.getAttribute("data-goto-month").split("|"); sel[gv[0]] = +gv[1]; try { localStorage.setItem("pf-month", JSON.stringify(sel)); } catch(x) {} page = "campaigns"; render(); window.scrollTo(0,0); try { history.replaceState(null, "", "#campaigns"); } catch(x) {} return; }
     var mb = e.target.closest && e.target.closest("[data-month]");
     if (mb){ var mv = mb.getAttribute("data-month").split("|"); pickMonth(mv[0], mv[1]); return; }
     var op = e.target.closest && e.target.closest("[data-open]");
