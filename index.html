@@ -359,7 +359,7 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     "heroUnit": "SAR",
     "heroLabel": "Gross store sales in 22 days, with no discounts or offers live",
     "heroDelta": "+64.07% vs previous period",
-    "intro": "In the three weeks before National Day, most Saudi stores lean on discounts. This store ran none. Sales still grew by 64% and net profit by 59%, while every ad platform returned more than 11× its spend."
+    "intro": ""
   },
   "kpis": [
     {
@@ -371,16 +371,6 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       "value": "355.43K SAR",
       "label": "Net profit",
       "note": "+58.69% vs previous period"
-    },
-    {
-      "value": "SAR 1M",
-      "label": "Revenue in Google Analytics",
-      "note": "4K purchasers, 3.9K first-time"
-    },
-    {
-      "value": "SAR 13.39",
-      "label": "Avg purchase revenue per active user",
-      "note": "Up from SAR 7.30 in May"
     }
   ],
   "platforms": [
@@ -1088,7 +1078,7 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       '<h2 id="case-t" class="case-title" dir="auto" style="margin-top:8px">' + T("case.title") + '</h2>' + T("case.titleAr","div","case-sub","Add a subtitle") + "</div>" +
       '<div class="tags"><span class="tag strong">' + T("case.period") + '</span><span class="tag">' + T("case.status") + "</span></div></div>");
     h.push('<div class="hero"><div><div class="big num">' + T("case.heroValue") + "<small>" + T("case.heroUnit") + '</small></div><div class="big-label">' + T("case.heroLabel") +
-      '</div><div style="margin-top:12px"><span class="delta">' + T("case.heroDelta") + '</span></div></div><div>' + T("case.intro","p","intro") + "</div></div>");
+      '</div><div style="margin-top:12px"><span class="delta">' + T("case.heroDelta") + '</span></div></div>' + ((editing || c.intro) ? "<div>" + T("case.intro","p","intro","Add a short intro") + "</div>" : "") + "</div>");
     h.push('<div class="kpis">' + s.kpis.map(function(k,i){
       return '<div class="kpi">' + T("kpis."+i+".value","div","v num") + T("kpis."+i+".label","div","l") + T("kpis."+i+".note","div","n","Add a note") + tools(rm("kpis", i, "figure")) + "</div>";
     }).join("") + "</div>");
