@@ -297,6 +297,13 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 .step-shot figcaption{padding:12px 16px 14px;display:flex;flex-direction:column;gap:4px}
 .step-shot .plat-name{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
 .step-shot .cap{font-size:14px;color:var(--ink)}
+
+.dets.with-img{grid-template-columns:minmax(0,1fr)}
+.det .det-shot{margin:8px 0 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.det .det-shot button{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in}
+.det .det-shot img{display:block;width:100%;height:auto}
+.det .det-shot button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.det .det-cap{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
 @media (max-width:760px){
   .top{grid-template-columns:1fr}
   .contact{align-items:flex-start;text-align:left}
@@ -968,15 +975,30 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
         "details": [
           {
             "label": "Meta",
-            "text": "Tested and optimized across Target CPA → 1–3% Lookalikes → Broad Audiences, with continuous creative testing to identify scalable winners."
+            "text": "Tested and optimized across Target CPA → 1–3% Lookalikes → Broad Audiences, with continuous creative testing to identify scalable winners.",
+            "image": {
+              "src": "shots/2026-09-meta.png",
+              "platform": "Meta Ads Manager · 1 – 22 Sep 2026",
+              "caption": "Advantage+ prospecting: ROAS 13.30, cost per purchase 19.56 SAR"
+            }
           },
           {
             "label": "Snapchat",
-            "text": "$13 Target Cost per Result, with separate Prospecting and Add-to-Cart Retargeting campaigns."
+            "text": "$13 Target Cost per Result, with separate Prospecting and Add-to-Cart Retargeting campaigns.",
+            "image": {
+              "src": "shots/2026-09-snapchat.png",
+              "platform": "Snapchat Ads Manager · 1 – 22 Sep 2026",
+              "caption": "ROAS 16.75 on US$3,741.82, 944 purchases"
+            }
           },
           {
             "label": "TikTok",
-            "text": "Structured campaigns across Target CPA, Prospecting, 90-Day Add-to-Cart Retargeting, and Broad Audiences."
+            "text": "Structured campaigns across Target CPA, Prospecting, 90-Day Add-to-Cart Retargeting, and Broad Audiences.",
+            "image": {
+              "src": "shots/2026-09-tiktok.png",
+              "platform": "TikTok Ads Manager · 1 – 22 Sep 2026",
+              "caption": "3 campaigns: ROAS 11.68 on 27,845 SAR, 1,356 purchases"
+            }
           }
         ],
         "closing": ""
@@ -1138,7 +1160,9 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
         if (st.flowLabel || editing) x += T(b+"flowLabel","p","flow-l","Add a label");
         x += '<div class="flow">' + st.flow.map(function(f,j){ return (j ? '<span class="ar2" aria-hidden="true">→</span>' : "") + '<span class="fs">' + T(b+"flow."+j) + "</span>"; }).join("") + "</div>";
       }
-      if ((st.details || []).length) x += '<div class="dets">' + st.details.map(function(d,j){ return '<div class="det">' + T(b+"details."+j+".label","span","dl") + T(b+"details."+j+".text","span","dt") + "</div>"; }).join("") + "</div>";
+      if ((st.details || []).length) x += '<div class="dets' + (st.details.some(function(d){ return d.image && d.image.src; }) ? " with-img" : "") + '">' + st.details.map(function(d,j){
+        var im = d.image && d.image.src ? '<figure class="det-shot"><button data-lb-src="' + esc(d.image.src) + '" data-lb-cap="' + esc(d.image.platform + " · " + d.image.caption) + '" aria-label="Open ' + esc(d.label) + ' screenshot full size"><img src="' + esc(d.image.src) + '" alt="' + esc(d.image.platform + ": " + d.image.caption) + '" loading="lazy"></button></figure>' + T(b+"details."+j+".image.caption","span","det-cap") : "";
+        return '<div class="det">' + T(b+"details."+j+".label","span","dl") + T(b+"details."+j+".text","span","dt") + im + "</div>"; }).join("") + "</div>";
       if (st.closing || editing) x += T(b+"closing","p","c","Add a closing line");
       if ((st.stats || []).length) x += '<div class="stats">' + st.stats.map(function(k,j){ return '<div class="stat">' + T(b+"stats."+j+".value","span","sv num") + T(b+"stats."+j+".label","span","sl") +
         (editing ? '<button class="btn small ghost" data-act="rm" data-list="' + b + 'stats" data-i="' + j + '">Remove</button>' : "") + "</div>"; }).join("") + "</div>";
@@ -1376,6 +1400,9 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     if (gm){ var gv = gm.getAttribute("data-goto-month").split("|"); sel[gv[0]] = +gv[1]; try { localStorage.setItem("pf-month", JSON.stringify(sel)); } catch(x) {} page = "campaigns"; render(); window.scrollTo(0,0); try { history.replaceState(null, "", "#campaigns"); } catch(x) {} return; }
     var mb = e.target.closest && e.target.closest("[data-month]");
     if (mb){ var mv = mb.getAttribute("data-month").split("|"); pickMonth(mv[0], mv[1]); return; }
+    var ls = e.target.closest && e.target.closest("[data-lb-src]");
+    if (ls){ lb.innerHTML = '<div class="lb-bar"><span>' + esc(ls.getAttribute("data-lb-cap")) + '</span><button class="btn small" data-close>Close</button></div><img src="' + esc(ls.getAttribute("data-lb-src")) + '" alt="">';
+      lb.hidden = false; lb.querySelector("[data-close]").focus(); return; }
     var oi = e.target.closest && e.target.closest("[data-open-img]");
     if (oi){ var im = state.strategy.steps[+oi.getAttribute("data-open-img")].image;
       lb.innerHTML = '<div class="lb-bar"><span>' + esc(im.platform + " · " + im.caption) + '</span><button class="btn small" data-close>Close</button></div><img src="' + esc(im.src) + '" alt="' + esc(im.platform) + '">';
