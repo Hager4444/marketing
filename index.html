@@ -256,6 +256,35 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 .mbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .picker select{display:none;font:500 15px/1.2 var(--body);padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
 @media (max-width:560px){ .months{display:none} .picker select{display:block} }
+
+/* Strategy */
+.strat{display:flex;flex-direction:column;gap:28px}
+.strat-head{display:flex;flex-direction:column;gap:10px;max-width:68ch}
+.strat-head h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;line-height:1.08}
+.strat-head .lead{font-size:clamp(17px,2vw,20px);color:var(--ink);font-weight:500}
+.strat-head p{color:var(--ink-2);font-size:16px}
+.steps{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink)}
+.step2{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 24px;padding-block:28px;border-bottom:1px solid var(--line)}
+.step2 .n{font:800 clamp(34px,4vw,48px)/1 var(--display);color:var(--accent);letter-spacing:-0.02em}
+.step2 h3{font-size:clamp(20px,2.6vw,26px);font-weight:700}
+.step2 .b{color:var(--ink-2);font-size:15.5px;margin-top:8px;max-width:66ch}
+.step2 .c{color:var(--ink-2);font-size:15.5px;margin-top:14px;max-width:66ch}
+.step2 ul.lst{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.step2 ul.lst li{font:500 13.5px/1 var(--body);padding:9px 12px;border-radius:999px;background:var(--accent-soft);color:var(--ink)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin-top:14px;max-width:720px}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.tier .q{font-size:13px;color:var(--ink-2)}
+.tier .o{font:800 22px/1 var(--display);color:var(--ink)}
+.tier .bar{height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.tier .bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+.flow-l{color:var(--ink-2);font-size:15.5px;margin-top:14px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.flow .fs{font:600 14px/1 var(--body);padding:11px 14px;border-radius:10px;border:1px solid var(--accent);color:var(--ink);background:var(--surface)}
+.flow .ar2{color:var(--accent);font-weight:700}
+.dets{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;margin-top:14px}
+.det{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.det .dl{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.det .dt{font-size:14.5px;color:var(--ink)}
 @media (max-width:760px){
   .top{grid-template-columns:1fr}
   .contact{align-items:flex-start;text-align:left}
@@ -263,6 +292,7 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
   .hero{grid-template-columns:1fr;gap:20px}
   .proj{grid-template-columns:1fr}
   .teaser{grid-template-columns:1fr}
+  .step2{grid-template-columns:minmax(0,1fr)}
   .teaser .t-big,.teaser .t-lbl{text-align:left}
 }
 @media (prefers-reduced-motion:no-preference){
@@ -876,7 +906,102 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       ]
     }
   ],
-  "projects": []
+  "projects": [],
+  "strategy": {
+    "eyebrow": "How we got there",
+    "title": "Performance Growth Strategy",
+    "intro": "The objective was clear: increase Revenue and AOV, scale customer acquisition, and maintain strong marketing efficiency.",
+    "intro2": "Instead of simply increasing spend, I built a full-funnel performance strategy focused on making every Riyal work harder.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "AOV Optimization",
+        "body": "Introduced strategic Product Bundles and volume-based offers to increase basket size:",
+        "list": [
+          "Back-to-School Bundles"
+        ],
+        "tiers": [
+          {
+            "qty": "Buy 2 KG",
+            "off": "5% Off"
+          },
+          {
+            "qty": "Buy 3 KG",
+            "off": "10% Off"
+          },
+          {
+            "qty": "Buy 4 KG",
+            "off": "15% Off"
+          },
+          {
+            "qty": "Buy 5 KG",
+            "off": "20% Off"
+          },
+          {
+            "qty": "Buy 6 KG",
+            "off": "20% Off"
+          }
+        ],
+        "flow": [],
+        "details": [],
+        "closing": "The offers were designed to encourage customers to increase their basket size while creating a clear incentive to purchase higher quantities."
+      },
+      {
+        "num": "02",
+        "title": "Scaling What Works",
+        "body": "Scaled winning campaigns and creatives based on performance signals rather than increasing budgets across the board.",
+        "list": [],
+        "tiers": [],
+        "flowLabel": "On Meta, I tested and optimized across:",
+        "flow": [
+          "Target CPA",
+          "1–3% Lookalikes",
+          "Broad Audiences"
+        ],
+        "details": [],
+        "closing": "with continuous creative testing to identify scalable winners."
+      },
+      {
+        "num": "03",
+        "title": "Building a Creative Engine",
+        "body": "Integrated Micro-Influencers and UGC into the performance strategy to create authentic, product-focused content — from product experience to the honey packaging process.",
+        "list": [],
+        "tiers": [],
+        "flow": [],
+        "details": [],
+        "closing": "The goal was to turn creative into a performance lever, not just a branding asset."
+      },
+      {
+        "num": "04",
+        "title": "Full-Funnel Paid Media",
+        "body": "Built channel structures around the customer journey.",
+        "list": [],
+        "tiers": [],
+        "flow": [],
+        "details": [
+          {
+            "label": "Snapchat",
+            "text": "$13 Target Cost per Result, with separate Prospecting and Add-to-Cart Retargeting campaigns."
+          },
+          {
+            "label": "TikTok",
+            "text": "Structured campaigns across Target CPA, Prospecting, 90-Day Add-to-Cart Retargeting, and Broad Audiences."
+          }
+        ],
+        "closing": "This allowed us to control budget allocation and messaging based on each stage of the funnel."
+      },
+      {
+        "num": "05",
+        "title": "Turning Existing Customers Into Revenue",
+        "body": "CRM became an important part of the growth strategy.",
+        "list": [],
+        "tiers": [],
+        "flow": [],
+        "details": [],
+        "closing": "We segmented High-Value Customers with 3+ purchases and activated them through targeted WhatsApp campaigns with exclusive promotional codes — focusing on repeat purchases and customer value, rather than relying solely on paid acquisition."
+      }
+    ]
+  }
 }
 </script>
 <script id="main">
@@ -978,7 +1103,37 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
         "</dl>" + tools('<button class="btn small" data-act="add" data-list="platforms.'+i+'.metrics">Add a row</button>' + rm("platforms", i, "platform")) + "</article>");
     });
     h.push("</div>" + (editing ? '<div class="add-row"><button class="btn small" data-act="add" data-list="platforms">Add a platform</button></div>' : "") + "</section>");
+    renderStrategy(h);
     h.push('<div class="case-foot"><button class="cta" data-goto-month="p-azran|0">See the September screenshots →</button></div>');
+  }
+
+
+  function renderStrategy(h){
+    var g = state.strategy; if (!g) return;
+    h.push('<section class="strat" aria-labelledby="st-t"><div class="strat-head">' + T("strategy.eyebrow","div","eyebrow") +
+      '<h2 id="st-t">' + T("strategy.title") + "</h2>" + T("strategy.intro","p","lead") + T("strategy.intro2","p") + '</div><div class="steps">');
+    g.steps.forEach(function(st,i){
+      var b = "strategy.steps." + i + ".";
+      var x = '<article class="step2">' + T(b+"num","div","n") + "<div>" + T(b+"title","h3") + T(b+"body","p","b");
+      if ((st.list || []).length || editing) x += '<ul class="lst">' + (st.list || []).map(function(it,j){ return "<li>" + T(b+"list."+j) + (editing ? ' <button class="btn small ghost" data-act="rm" data-list="' + b + 'list" data-i="' + j + '" aria-label="Remove">×</button>' : "") + "</li>"; }).join("") +
+        (editing ? '<li><button class="btn small" data-act="add" data-list="' + b + 'list">Add item</button></li>' : "") + "</ul>";
+      if ((st.tiers || []).length) {
+        var mx = 0; st.tiers.forEach(function(t){ var v = parseFloat(t.off) || 0; if (v > mx) mx = v; });
+        x += '<div class="tiers">' + st.tiers.map(function(t,j){ var v = parseFloat(t.off) || 0;
+          return '<div class="tier">' + T(b+"tiers."+j+".qty","span","q") + T(b+"tiers."+j+".off","span","o num") + '<span class="bar"><i style="width:' + (mx ? Math.round(v/mx*100) : 0) + '%"></i></span>' +
+            (editing ? '<button class="btn small ghost" data-act="rm" data-list="' + b + 'tiers" data-i="' + j + '">Remove</button>' : "") + "</div>"; }).join("") + "</div>";
+      }
+      if (editing && st.tiers) x += '<div class="add-row" style="margin-top:8px"><button class="btn small" data-act="add" data-list="' + b + 'tiers">Add offer</button></div>';
+      if ((st.flow || []).length) {
+        if (st.flowLabel || editing) x += T(b+"flowLabel","p","flow-l","Add a label");
+        x += '<div class="flow">' + st.flow.map(function(f,j){ return (j ? '<span class="ar2" aria-hidden="true">→</span>' : "") + '<span class="fs">' + T(b+"flow."+j) + "</span>"; }).join("") + "</div>";
+      }
+      if ((st.details || []).length) x += '<div class="dets">' + st.details.map(function(d,j){ return '<div class="det">' + T(b+"details."+j+".label","span","dl") + T(b+"details."+j+".text","span","dt") + "</div>"; }).join("") + "</div>";
+      if (st.closing || editing) x += T(b+"closing","p","c","Add a closing line");
+      x += tools(rm("strategy.steps", i, "step")) + "</div></article>";
+      h.push(x);
+    });
+    h.push("</div>" + (editing ? '<div class="add-row"><button class="btn small" data-act="add" data-list="strategy.steps">Add a step</button></div>' : "") + "</section>");
   }
 
   function renderOverview(h){
@@ -1221,6 +1376,9 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       var arr = getPath(state, list), item;
       if (list.indexOf("tables.") === 0){ item = {}; TABLES[list.split(".")[1]].cols.forEach(function(c){ item[c[0]] = c[2] === "text" ? "" : null; }); item.month = "New"; }
       else if (/\.metrics$/.test(list)) item = {label:"New row", value:"0"};
+      else if (/\.list$/.test(list)) item = "New item";
+      else if (/\.tiers$/.test(list)) item = {qty:"Buy 1 KG", off:"0% Off"};
+      else if (list === "strategy.steps") item = {num: ("0" + (arr.length + 1)).slice(-2), title:"New step", body:"What you did.", list:[], tiers:[], flow:[], details:[], closing:""};
       else item = clone(BLANK[list]);
       arr.push(item); render();
     }
