@@ -313,6 +313,7 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 .det-fig figcaption{padding:10px 14px 12px;display:flex;flex-direction:column;gap:4px}
 .det-fig .dl{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
 .det-fig .cap{font-size:14px;color:var(--ink)}
+.case-fig{max-width:900px}
 @media (max-width:760px){
   .top{grid-template-columns:1fr}
   .contact{align-items:flex-start;text-align:left}
@@ -387,7 +388,12 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     "heroUnit": "SAR",
     "heroLabel": "Gross store sales in 22 days",
     "heroDelta": "+64.07% vs previous period",
-    "intro": ""
+    "intro": "",
+    "image": {
+      "src": "shots/2026-09-1-22-store-sales.png",
+      "platform": "Store dashboard · 1 – 22 Sep 2026",
+      "caption": "Gross sales 1.21M SAR (+64.07%), net sales 1.16M SAR (+63.72%)"
+    }
   },
   "kpis": [],
   "platforms": [
@@ -1161,6 +1167,8 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       '<div class="tags"><span class="tag strong">' + T("case.period") + '</span>' + ((editing || c.status) ? '<span class="tag">' + T("case.status","span","","Add a tag") + "</span>" : "") + "</div></div>");
     h.push('<div class="hero"><div><div class="big num">' + T("case.heroValue") + "<small>" + T("case.heroUnit") + '</small></div><div class="big-label">' + T("case.heroLabel") +
       '</div><div style="margin-top:12px"><span class="delta">' + T("case.heroDelta") + '</span></div></div>' + ((editing || c.intro) ? "<div>" + T("case.intro","p","intro","Add a short intro") + "</div>" : "") + "</div>");
+    if (c.image && c.image.src) h.push('<figure class="det-fig case-fig"><button data-lb-src="' + esc(c.image.src) + '" data-lb-cap="' + esc(c.image.platform + " · " + c.image.caption) + '" aria-label="Open store dashboard screenshot full size"><img src="' + esc(c.image.src) + '" alt="' + esc(c.image.platform + ": " + c.image.caption) + '" loading="lazy"></button>' +
+      '<figcaption>' + T("case.image.platform","span","dl") + T("case.image.caption","span","cap") + "</figcaption></figure>");
     if (editing || s.kpis.length) h.push('<div class="kpis">' + s.kpis.map(function(k,i){
       return '<div class="kpi">' + T("kpis."+i+".value","div","v num") + T("kpis."+i+".label","div","l") + T("kpis."+i+".note","div","n","Add a note") + tools(rm("kpis", i, "figure")) + "</div>";
     }).join("") + "</div>");
