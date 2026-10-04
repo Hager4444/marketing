@@ -319,6 +319,7 @@ td input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:tra
 .cs-sec h2{font-size:clamp(22px,3vw,30px);font-weight:700;max-width:30ch}
 .cs-sec .b{color:var(--ink-2);font-size:15.5px;max-width:66ch}
 .cs-sec .stats{margin-top:4px;max-width:none}
+.cs-sec .dets,.cs-sec .det-shots{margin-top:4px}
 .teasers{display:flex;flex-direction:column;gap:16px}
 @media (max-width:760px){
   .top{grid-template-columns:1fr}
@@ -1102,6 +1103,41 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
     },
     "sections": [
       {
+        "eyebrow": "Paid media · National Day week",
+        "title": "Every channel returned more than 12× its spend",
+        "body": "Results from each ad platform during the National Day campaign.",
+        "stats": [],
+        "cards": [
+          {
+            "label": "Meta",
+            "text": "ASC Prospecting: ROAS 16.97 on 4,813 SAR, 351 purchases at 13.71 SAR each.",
+            "image": {
+              "src": "shots/2026-09-23-30-meta.png",
+              "platform": "Meta Ads Manager · 23 – 30 Sep 2026",
+              "caption": "ASC Prospecting: ROAS 16.97 on 4,813.46 SAR, 351 purchases, 81,661.86 SAR purchase value"
+            }
+          },
+          {
+            "label": "Snapchat",
+            "text": "ROAS 12.67 on US$800, 167 purchases and 504 add to basket.",
+            "image": {
+              "src": "shots/2026-09-23-30-snapchat.png",
+              "platform": "Snapchat Ads Manager · 23 – 30 Sep 2026",
+              "caption": "ROAS 12.67 on US$799.93, US$10,134.15 purchase value, 167 purchases"
+            }
+          },
+          {
+            "label": "TikTok",
+            "text": "3 campaigns: ROAS 15.69 on 10,844 SAR, 769 purchases at 14.10 SAR each.",
+            "image": {
+              "src": "shots/2026-09-27-10-04-tiktok.png",
+              "platform": "TikTok Ads Manager · 27 Sep – 4 Oct 2026",
+              "caption": "3 campaigns: ROAS 15.69 on 10,843.71 SAR, 170,162.99 SAR purchase value, 769 purchases"
+            }
+          }
+        ]
+      },
+      {
         "eyebrow": "CRM · National Day week, 23 – 30 Sep 2026",
         "title": "Existing customers brought in 60% of the week's revenue",
         "body": "Revenue from CRM and WhatsApp traffic in Google Analytics during National Day week.",
@@ -1307,6 +1343,12 @@ Purchase value: US$62,674.87"></rect></svg></div></figure></div></section><secti
       var x = '<section class="cs-sec">' + T(b + ".eyebrow","div","eyebrow") + T(b + ".title","h2") + ((editing || sec.body) ? T(b + ".body","p","b","Add a short description") : "");
       if ((sec.stats || []).length) x += '<div class="stats">' + sec.stats.map(function(k,j){ return '<div class="stat">' + T(b+".stats."+j+".value","span","sv num") + T(b+".stats."+j+".label","span","sl") +
         (editing ? '<button class="btn small ghost" data-act="rm" data-list="' + b + '.stats" data-i="' + j + '">Remove</button>' : "") + "</div>"; }).join("") + "</div>";
+      if ((sec.cards || []).length) {
+        x += '<div class="dets">' + sec.cards.map(function(d,j){ return '<div class="det">' + T(b+".cards."+j+".label","span","dl") + T(b+".cards."+j+".text","span","dt") + "</div>"; }).join("") + "</div>";
+        x += '<div class="det-shots">' + sec.cards.map(function(d,j){ if (!(d.image && d.image.src)) return "";
+          return '<figure class="det-fig"><button data-lb-src="' + esc(d.image.src) + '" data-lb-cap="' + esc(d.image.platform + " · " + d.image.caption) + '" aria-label="Open ' + esc(d.label) + ' screenshot full size"><img src="' + esc(d.image.src) + '" alt="' + esc(d.image.platform + ": " + d.image.caption) + '" loading="lazy"></button>' +
+            '<figcaption>' + T(b+".cards."+j+".image.platform","span","dl") + T(b+".cards."+j+".image.caption","span","cap") + "</figcaption></figure>"; }).join("") + "</div>";
+      }
       if (sec.image && sec.image.src) x += figure(b + ".image", sec.image, "screenshot");
       x += tools(rm("case2.sections", i, "section")) + "</section>";
       h.push(x);
